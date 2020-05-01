@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
 const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('../database/database.sqlite');
+const db = new sqlite3.Database('database.sqlite');
 
 const wss = new WebSocket.Server({ port: process.env.PORT || 8080 });
 
@@ -28,8 +28,9 @@ function dbQueries(dataList, callback){
       }
       return callback(rows);
     });
-
 }
+
+// RATHER THAN SEND BACK NOTHING REALLY SEND BACK ALL COMMENTS IN DATABASE BASED ON CURRENT ACTIVITY
 
 wss.on('connection', (ws) => {  
   ws.on('message', (message) => {
