@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
 const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database('database.sqlite');
+const db = new sqlite3.Database('/database.sqlite');
 
 const wss = new WebSocket.Server({ port: process.env.PORT || 8080 });
 
